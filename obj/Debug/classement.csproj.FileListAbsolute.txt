@@ -1,0 +1,6 @@
+c:\users\¤5456546561122112312\documents\visual studio 2015\Projects\classement\classement\bin\Debug\classement.exe.config
+c:\users\¤5456546561122112312\documents\visual studio 2015\Projects\classement\classement\bin\Debug\classement.exe
+c:\users\¤5456546561122112312\documents\visual studio 2015\Projects\classement\classement\bin\Debug\classement.pdb
+c:\users\¤5456546561122112312\documents\visual studio 2015\Projects\classement\classement\obj\Debug\classement.csprojResolveAssemblyReference.cache
+c:\users\¤5456546561122112312\documents\visual studio 2015\Projects\classement\classement\obj\Debug\classement.exe
+c:\users\¤5456546561122112312\documents\visual studio 2015\Projects\classement\classement\obj\Debug\classement.pdb
