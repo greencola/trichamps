@@ -53,14 +53,21 @@ namespace classement
             positions.Add(new Position("titre2a", "a"));
             positions.Add(new Position("titre3a", "a"));
             positions.Add(new Position("titre4a", "a"));
-            positions.Add(new Position("", "a"));
-            positions.Add(new Position("", "a"));
             positions.Add(new Position("titre5a", "a"));
-            positions.Add(new Position("", "a"));
-            positions.Add(new Position("", "a"));
             positions.Add(new Position("titre6a", "a"));
             positions.Add(new Position("", "a"));
             positions.Add(new Position("", "a"));
+            positions.Add(new Position("", "a"));
+
+            positions.Add(new Position("titre1b", "b"));
+            positions.Add(new Position("", "b"));
+            positions.Add(new Position("", "b"));
+            positions.Add(new Position("titre2b", "b"));
+            positions.Add(new Position("", "b"));
+            positions.Add(new Position("", "b"));
+            positions.Add(new Position("titre3b", "b"));
+            positions.Add(new Position("", "b"));
+            positions.Add(new Position("", "b"));
 
             using (StreamWriter writetext = new StreamWriter("result.html"))
             {
