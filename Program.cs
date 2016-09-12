@@ -72,15 +72,41 @@ namespace classement
                 
                 foreach(var cat in categs)
                 {
+                    //On charge les positions de la categ
+                    List<Position> positionsCateg = positions.Where(x => x.Categ == cat).ToList();
+                    List<Champ> hautListe = new List<Champ>();
+
+                    //On place les champs positionnes en debut de liste
+                    foreach(var pos in positionsCateg)
+                    {
+                        foreach(var cl in champs)
+                        {
+                            if(cl.Title==pos.Champ)
+                            {
+                                hautListe.Add(cl);
+                            }
+                        }
+                        if(pos.Champ=="")
+                        {
+                            hautListe.Add(new Champ("","",pos.Categ));
+                        }
+                    }
+                    //On supprime les champs positionnes dans la liste normale
+                    foreach(var cl in hautListe)
+                    {
+                        champs.RemoveAll(x=>x.Title==cl.Title);
+                    }
+
+                    hautListe=hautListe.Concat(champs).ToList();
+
+
                     writetext.WriteLine("<table class='table tbcl'>");
                     writetext.WriteLine("<tr><th colspan='2'><h4 class='titreCateg'><font color ='#3C8BAD'>"+cat+"</font></h4></th></tr>");
                     int cpt = 0;
-                    foreach (var c in champs)
+                    foreach (var c in hautListe)
                     {
                         if(c.categ==cat)
                         {
-                            //On charge les positions de la categ
-                            List<Position> positionsCateg = positions.Where(x=>x.Categ==cat).ToList();
                             if(cpt==0)
                             {writetext.WriteLine("<tr>");}
                             writetext.Write("<td>");
