@@ -5,7 +5,6 @@
         public string Value;
         public string Title;
         public string categ;
-        public string LineCateg;
         public Champ(string _t,string _v,string _c)
         {
             this.Value = _v;

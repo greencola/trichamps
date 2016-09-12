@@ -48,6 +48,20 @@ namespace classement
         }
         public static void GenererHTML(List<Champ> champs,List<String> categs)
         {
+            List<Position> positions = new List<Position>();
+            positions.Add(new Position("titre1a","a"));
+            positions.Add(new Position("titre2a", "a"));
+            positions.Add(new Position("titre3a", "a"));
+            positions.Add(new Position("titre4a", "a"));
+            positions.Add(new Position("", "a"));
+            positions.Add(new Position("", "a"));
+            positions.Add(new Position("titre5a", "a"));
+            positions.Add(new Position("", "a"));
+            positions.Add(new Position("", "a"));
+            positions.Add(new Position("titre6a", "a"));
+            positions.Add(new Position("", "a"));
+            positions.Add(new Position("", "a"));
+
             using (StreamWriter writetext = new StreamWriter("result.html"))
             {
                 writetext.WriteLine("<html>");
@@ -59,16 +73,25 @@ namespace classement
                 foreach(var cat in categs)
                 {
                     writetext.WriteLine("<table class='table tbcl'>");
-                    writetext.WriteLine("<tr><th colspan='1'><h4 class='titreCateg'><font color ='#3C8BAD'>"+cat+"</font></h4></th></tr>");
+                    writetext.WriteLine("<tr><th colspan='2'><h4 class='titreCateg'><font color ='#3C8BAD'>"+cat+"</font></h4></th></tr>");
+                    int cpt = 0;
                     foreach (var c in champs)
                     {
                         if(c.categ==cat)
-                        { 
-                            writetext.WriteLine("<tr>");
-                            writetext.WriteLine("<td>");
-                            writetext.WriteLine(c.Title);
-                            writetext.WriteLine("</td>");
-                            writetext.WriteLine("</tr>");
+                        {
+                            //On charge les positions de la categ
+                            List<Position> positionsCateg = positions.Where(x=>x.Categ==cat).ToList();
+                            if(cpt==0)
+                            {writetext.WriteLine("<tr>");}
+                            writetext.Write("<td>");
+                            writetext.Write(c.Title);
+                            writetext.Write("</td>");
+                            writetext.Write("<td>");
+                            writetext.Write(c.Value);
+                            writetext.Write("</td>");
+                            cpt++;
+                            if (cpt==3)
+                            {writetext.WriteLine("</tr>");cpt = 0; }
                         }
                     }
                     writetext.WriteLine("</table>");
